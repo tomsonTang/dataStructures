@@ -16,7 +16,8 @@ export default class StringT {
 
 
     /**
-     * 判断字符是2字节还是4字节 兼容大于 \uFFFF 的 Unicode字符
+     * 判断字符是2字节还是4字节 
+     * 兼容大于 \uFFFF 的 Unicode字符
      * 
      * 返回 false 为2字节字符
      * 返回 true  为4字节字符
@@ -34,7 +35,8 @@ export default class StringT {
 
 
     /**
-     * 返回正确的字符串长度 兼容大于 \uFFFF 的32位Unicode字符 版本1
+     * 返回正确的字符串长度 
+     * 兼容大于 \uFFFF 的32位Unicode字符 版本1
      * 
      * @static
      * @param {string} [text=throwIfMiss(StringT.codePointLength)] 需要计算的字符串
@@ -50,7 +52,8 @@ export default class StringT {
 
 
     /**
-     * 返回正确的字符串长度 兼容大于 \uFFFF 的32位Unicode字符 版本2
+     * 返回正确的字符串长度 
+     * 兼容大于 \uFFFF 的32位Unicode字符 版本2
      * 
      * @static
      * @param {string} [text=throwIfMiss(StringT.countSymbols)]
@@ -63,7 +66,8 @@ export default class StringT {
     }
 
     /**
-     * 返回正确的字符串长度 兼容大于 \uFFFF 的32位Unicode字符 版本3
+     * 返回正确的字符串长度 
+     * 兼容大于 \uFFFF 的32位Unicode字符 版本3
      * 
      * @static
      * @param {string} [text=throwIfMiss(StringT.length)]
@@ -77,7 +81,8 @@ export default class StringT {
 
     
     /**
-     * 反转字符串内容 兼容大于 \uFFFF 的32位Unicode字符
+     * 反转字符串内容 
+     * 兼容大于 \uFFFF 的32位Unicode字符
      *  
      * let str = 'x\uD83D\uDE80y'
      * bad:
