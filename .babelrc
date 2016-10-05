@@ -1,0 +1,79 @@
+{
+    "presets": [
+        "es2015",
+        "stage-0" // includes stage-1 stage-2 stage-3
+
+    ],
+    "plugins": [
+        // -----------presets es2015 start-------------
+        // "transform-es2015-arrow-functions",
+        // "transform-es2015-block-scoped-functions",
+        // "transform-es2015-block-scoping",
+        // "transform-es2015-classes",
+        // "transform-es2015-computed-properties",
+        // "transform-es2015-constants",
+        "transform-es2015-destructuring",
+        // "transform-es2015-for-of",
+        // "transform-es2015-function-name",
+        // "transform-es2015-literals",
+        // "transform-es2015-object-super",
+        // "transform-es2015-parameters",
+        "transform-es2015-shorthand-properties",
+        // "transform-es2015-spread",
+        "transform-es2015-sticky-regex",
+        // "transform-es2015-template-literals",
+        // "transform-es2015-typeof-symbol",
+        "transform-es2015-unicode-regex",
+        "transform-es2015-modules-commonjs",
+        // "transform-regenerator",
+        // -----------presets es2015 end----------------
+        // -----------presets stage-0 start-------------
+        // "transform-do-expressions",
+        // "transform-function-bind",
+        // -----------presets stage-1 start-------------
+        // "transform-class-constructor-call",
+        // "transform-class-properties",
+        // "transform-decorators",
+        // "transform-export-extensions",
+        // -----------presets stage-1 end---------------
+        // -----------presets stage-2 start-------------
+        // "syntax-trailing-function-commas",
+        // "transform-object-rest-spread",
+        // -----------presets stage-2 end---------------
+        // -----------presets stage-3 start-------------
+        // "transform-async-to-generator",
+        // "transform-exponentiation-operator",
+        // -----------presets stage-3 end---------------
+        // -----------presets stage-0 end---------------
+        // -----------Misc start------------------------
+        // ["external-helpers-2"], //
+        // ["undeclared-variables-check"],//
+        // -----------Misc end--------------------------
+        // -----------Syntax start----------------------
+        ["syntax-async-functions"],
+        ["syntax-async-generators"],
+        ["syntax-class-constructor-call"],
+        ["syntax-class-properties"],
+        ["syntax-decorators"],
+        ["syntax-do-expressions"],
+        ["syntax-exponentiation-operator"],
+        ["syntax-export-extensions"],
+        ["syntax-flow"],
+        ["syntax-function-bind"],
+        ["syntax-object-rest-spread"],
+        ["syntax-trailing-function-commas"],
+        // -----------Syntax end------------------------
+        // -----------Transform start-------------------
+        ["transform-es5-property-mutators"],
+        // ["transform-async-to-module-method"],
+        ["transform-flow-strip-types"],
+        ["transform-object-assign"],
+        // ["transform-object-set-prototype-of-to-assign"],
+        ["transform-undefined-to-void"]//
+        // ["transform-es2015-modules-amd"],
+        // ["transform-es2015-modules-systemjs"]
+        // ["transform-es2015-modules-umd"]
+        // -----------Transform end---------------------
+        // ["transform-runtime"],//整洁模式
+    ]
+}
