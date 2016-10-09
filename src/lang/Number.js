@@ -1,14 +1,15 @@
+/** 
+ * lang.Number
+ * @flow
+ */
+
 import 'babel-polyfill'
 
-import {
-    MethodCheck
-} from '../MethodCheck'
+import MethodCheck from '../MethodCheck'
 
-let throwIfMiss = MethodCheck.throwIfMiss;
+let throwIfMiss: Function = MethodCheck.throwIfMiss;
 
 /**
- * lang.Number
- * 
  * @export
  * @class NumberT
  */
@@ -26,7 +27,10 @@ export default class NumberT {
      * 
      * @memberOf NumberT
      */
-    static withErrorMargin(left: number = throwIfMiss(NumberT.withErrorMargin), right: number = throwIfMiss(NumberT.withErrorMargin)): boolean {
+    static withErrorMargin(
+        left: number = throwIfMiss(NumberT.withErrorMargin),
+        right: number = throwIfMiss(NumberT.withErrorMargin)
+    ): boolean {
         return Math.abs(left - right) < Number.EPSILON
     }
 
@@ -41,7 +45,10 @@ export default class NumberT {
      * 
      * @memberOf NumberT
      */
-    static trusty(numbers: Array < number > = throwIfMiss(NumberT.trusty), result: number = throwIfMiss(NumberT.trusty)): boolean {
+    static trusty(
+        numbers: Array < number > = throwIfMiss(NumberT.trusty),
+        result: number = throwIfMiss(NumberT.trusty)
+    ): boolean {
         return numbers.concat(result).every((number => Number.isSafeInteger(number)))
     }
 
@@ -59,7 +66,9 @@ export default class NumberT {
      * 
      * @memberOf NumberT
      */
-    static isFullNaN(number: number | string = throwIfMiss(NumberT.isFullNaN)): boolean {
+    static isFullNaN(
+        number: number | string = throwIfMiss(NumberT.isFullNaN)
+    ): boolean {
         if (typeof number === 'string') {
             return number === 'NaN'
         } else if (typeof number === 'number') {
@@ -80,8 +89,10 @@ export default class NumberT {
      * 
      * @memberOf NumberT
      */
-    static binaryString(number:number = throwIfMiss(NumberT.binaryString,0)):string{
-        return (number + '').padStart(Math.clz32(number),0)
+    static binaryString(
+        number: number = throwIfMiss(NumberT.binaryString, 0)
+    ): string {
+        return (number + '').padStart(Math.clz32(number), '0')
     }
 
 }

@@ -5,15 +5,15 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src -d lib",
-    "run": "babel-node src/test.js"
+    "run": "babel-node src/test.js",
+    "flow":"flow; test $? -eq 0 -o $? -eq 2"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.13.2",
-    "babel-runtime": "^6.11.6",
-    "traceur": "0.0.111"
+    "babel-runtime": "^6.11.6"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",

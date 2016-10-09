@@ -1,14 +1,15 @@
+/** 
+ * lang.String
+ * @flow
+ */
+
 import 'babel-polyfill'
 
-import {
-    MethodCheck
-} from '../MethodCheck'
+import MethodCheck from '../MethodCheck'
 
-let throwIfMiss = MethodCheck.throwIfMiss;
+let throwIfMiss: Function = MethodCheck.throwIfMiss;
 
 /**
- * lang.String
- * 
  * @export
  * @class StringT
  */
@@ -28,8 +29,10 @@ export default class StringT {
      * 
      * @memberOf StringT
      */
-    static is32Bit(char: string = throwIfMiss(StringT.is32Bit)): boolean {
-        return c.codePointAt(0) > 0xFFFF
+    static is32Bit(
+        char: string = throwIfMiss(StringT.is32Bit)
+    ): boolean {
+        return char.codePointAt(0) > 0xFFFF
     }
 
 
@@ -44,8 +47,10 @@ export default class StringT {
      * 
      * @memberOf StringT
      */
-    static codePointLength(text: string = throwIfMiss(StringT.codePointLength)): number {
-        let result = text.match(/[\s\S]/ug)
+    static codePointLength(
+        text: string = throwIfMiss(StringT.codePointLength)
+    ): number {
+        let result: ? Array < string > = text.match(/[\s\S]/ug);
         return result ? result.length : 0
     }
 
@@ -61,7 +66,9 @@ export default class StringT {
      * 
      * @memberOf StringT
      */
-    static countSymbols(text: string = throwIfMiss(StringT.countSymbols)): number {
+    static countSymbols(
+        text: string = throwIfMiss(StringT.countSymbols)
+    ): number {
         return Array.from(text).length
     }
 
@@ -75,11 +82,13 @@ export default class StringT {
      * 
      * @memberOf StringT
      */
-    static length(text: string = throwIfMiss(StringT.length)): number {
+    static length(
+        text: string = throwIfMiss(StringT.length)
+    ): number {
         return [...text].length
     }
 
-    
+
     /**
      * 反转字符串内容 
      * 兼容大于 \uFFFF 的32位Unicode字符
@@ -97,9 +106,9 @@ export default class StringT {
      * 
      * @memberOf StringT
      */
-    static reverse(text:string = throwIfMiss(StringT.reverse)):string{
+    static reverse(
+        text: string = throwIfMiss(StringT.reverse)
+    ): string {
         return [...text].reverse().join('');
     }
-
-    
 }

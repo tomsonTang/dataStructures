@@ -1,4 +1,6 @@
-import { MethodCheck } from './MethodCheck';
+import {
+    MethodCheck
+} from './MethodCheck';
 /**
  * structure.List
  * 
@@ -6,12 +8,12 @@ import { MethodCheck } from './MethodCheck';
  * @class List
  * @extends {MethodCheck}
  */
-export class List extends Array{
+export class List extends Array {
 
-    constructor (props) {
+    constructor(props) {
         super(props)
     }
-    
+
 
     /**
      * 
@@ -34,8 +36,6 @@ export class List extends Array{
      */
     dataStore = [];
 };
-
-let __methods = { clear,toString,remove,find,getElement,insert,append,front,end,next,prev,currPos,moveTo }
 
 
 function toString() {

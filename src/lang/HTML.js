@@ -1,12 +1,19 @@
-import 'babel-polyfill'
-/**
+/** 
  * lang.HTML
- * 
+ * @flow
+ */
+
+import 'babel-polyfill'
+
+import MethodCheck from '../MethodCheck'
+
+let throwIfMiss: Function = MethodCheck.throwIfMiss;
+/**
  * @export
  * @class HTMLT
  */
 export default class HTMLT {
-    
+
     /**
      * 
      * 
