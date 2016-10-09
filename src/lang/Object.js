@@ -1,14 +1,15 @@
+/** 
+ * lang.Object
+ * @flow
+ */
+
 import 'babel-polyfill'
 
-import {
-    MethodCheck
-} from '../MethodCheck'
+import MethodCheck from '../MethodCheck'
 
-let throwIfMiss = MethodCheck.throwIfMiss;
+let throwIfMiss: Function = MethodCheck.throwIfMiss;
 
 /**
- * lang.Object
- * 
  * @export
  * @class ObjectT
  */
@@ -28,7 +29,10 @@ export default class ObjectT {
      * 
      * @memberOf ObjectT
      */
-    static easyMarge(target:Object,...sources): Object {
+    static easyMarge(
+        target: Object,
+        ...sources: Array < Object >
+    ): Object {
         return Object.assign({}, ...sources);
     }
 
@@ -44,11 +48,13 @@ export default class ObjectT {
      * 
      * @memberOf ObjectT
      */
-    static easyClone(origin: Object = throwIfMiss(ObjectT.easyClone)): Object {
-        return ObjectT.easyMarge({},origin)
+    static easyClone(
+        origin: Object = throwIfMiss(ObjectT.easyClone)
+    ): Object {
+        return ObjectT.easyMarge({}, origin)
     }
 
-     /**
+    /**
      * 得到一个对象的浅克隆版本 版本2
      * 仅且克隆源源对象的自身可枚举属性 新克隆的版本不包含源对象的继承体系
      * 若源对象内含有引用类型 则新克隆的版本的对应属性亦为其引用
@@ -60,8 +66,11 @@ export default class ObjectT {
      * 
      * @memberOf ObjectT
      */
-    static easyClone2(origin: Object = throwIfMiss(ObjectT.easyClone)): Object {
-        return {...origin}
+    static easyClone2(
+        origin: Object = throwIfMiss(ObjectT.easyClone)
+    ): Object {
+        return {...origin
+        }
     }
 
 
@@ -77,10 +86,12 @@ export default class ObjectT {
      * 
      * @memberOf ObjectT
      */
-    static easyCloneWithParent(origin: Object = throwIfMiss(ObjectT.easyCloneWithParent)): Object {
+    static easyCloneWithParent(
+        origin: Object = throwIfMiss(ObjectT.easyCloneWithParent)
+    ): Object {
         return Object.assign(Object.create(Reflect.getPrototypeOf(origin)), origin)
     }
-    
+
     /**
      * JSON式克隆 
      * 仅且克隆源源对象的自身可枚举属性 新克隆的版本不包含源对象的继承体系
@@ -100,7 +111,12 @@ export default class ObjectT {
      * 
      * @memberOf ObjectT
      */
-    static jsonClone(origin:Object|string = throwIfMiss(ObjectT.jsonClone),replacer:Function|Array = undefined):Object{
+    static jsonClone(
+        origin: Object | string = throwIfMiss(ObjectT.jsonClone),
+        replacer: {
+            (key: string, value: string):any
+        } | Array < string >
+    ): Object {
         return JSON.parse(typeof origin === 'string' ? origin : JSON.stringify(origin))
     }
 
@@ -112,20 +128,23 @@ export default class ObjectT {
      * 
      * @static
      * @param {Object} target 目标对象
-     * @param {...Object} soruces 源对象
+     * @param {...Object} sources 源对象
      * @returns {Object}
      * 
      * @memberOf ObjectT
      */
-    static deepMarge(target:Object,...soruces):Object{
-        return sources.forEach((source) =>{
-            let descriptors = Reflect.ownKeys(source).reduce((descriptors,key) => {
-                descriptors[key] = Reflect.getOwnPropertyDescriptor(source,key)
+    static deepMarge(
+        target: Object,
+        ...sources: Array < Object >
+    ): Object {
+        return sources.forEach((source) => {
+            let descriptors: Object = Reflect.ownKeys(source).reduce((descriptors, key) => {
+                descriptors[key] = Reflect.getOwnPropertyDescriptor(source, key)
                 return descriptors;
-            },{})
-            
-            Object.defineProperties(target,descriptors)      
-        }),target
+            }, {})
+
+            Object.defineProperties(target, descriptors)
+        }), target
     }
 
     /**
@@ -139,10 +158,12 @@ export default class ObjectT {
      * 
      * @memberOf ObjectT
      */
-    static deepClone(origin:Object = throwIfMiss(ObjectT.deepClone)):Object{
-        return ObjectT.deepMarge({},origin)
+    static deepClone(
+        origin: Object = throwIfMiss(ObjectT.deepClone)
+    ): Object {
+        return ObjectT.deepMarge({}, origin)
     }
-    
+
     /**
      * 对象深克隆 
      * 合并源对象的所有可以或不可枚举的自身属性的属性包括可以或不可以枚举的 Symbol 属性 排在后面的源对象会覆盖排在前面的源对象的同名属性 
@@ -154,8 +175,10 @@ export default class ObjectT {
      * 
      * @memberOf ObjectT
      */
-    static deepCloneWithParent(origin:Object = throwIfMiss(ObjectT.deepCloneWithParent)):Object{
-        return ObjectT.deepMarge(Object.create(Reflect.getPrototypeOf(origin)),origin)
+    static deepCloneWithParent(
+        origin: Object = throwIfMiss(ObjectT.deepCloneWithParent)
+    ): Object {
+        return ObjectT.deepMarge(Object.create(Reflect.getPrototypeOf(origin)), origin)
     }
 
     /**
@@ -177,7 +200,7 @@ export default class ObjectT {
      * 
      * @memberOf ObjectT
      */
-    static isObject(value:any):boolean{
+    static isObject(value: any): boolean {
         /**
          * Object 构造函数为给定的值创建一个对象包装。
          * 如果给定值是  null or undefined，将会创建并返回一个空对象，否则，将返回一个与给定值对应类型的对象。

@@ -1,14 +1,15 @@
+/** 
+ * lang.Function
+ * @flow
+ */
+
 import 'babel-polyfill'
 
-import {
-    MethodCheck
-} from '../MethodCheck'
+import MethodCheck from '../MethodCheck'
 
-let throwIfMiss = MethodCheck.throwIfMiss;
+let throwIfMiss: Function = MethodCheck.throwIfMiss;
 
 /**
- * lang.Function
- * 
  * @export
  * @class FunctionT
  */
@@ -30,9 +31,13 @@ export default class FunctionT {
      * 
      * @memberOf FunctionT
      */
-    static pipeline(funcs: Array < Function > = throwIfMiss(FunctionT.pipeline)): any {
+    static pipeline(
+        funcs: Array < Function > = throwIfMiss(FunctionT.pipeline)
+    ): {
+        (values: Array < any > ): any
+    } {
         return (values) => {
-            let i = 0;
+            let i: number = 0;
             return values.reduce((a, b) => funcs[i++](a, b));
         }
     }
